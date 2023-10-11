@@ -8,4 +8,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Member/Metoki/Scenes/TutorialScene.unity
+    guid: cc7d2abf1bdeeb440a26c110bb79ba48
+  - enabled: 1
+    path: Assets/Member/Metoki/Scenes/GameScene.unity
+    guid: f7c589f6fdfe1da419b5939a41a20adb
+  - enabled: 1
+    path: Assets/Member/Metoki/Scenes/GameOverscene.unity
+    guid: 8ffbd9e9414683b48b283f211624d900
+  - enabled: 1
+    path: Assets/Member/Metoki/Scenes/ClearScene.unity
+    guid: dca4ae2a1de5ef7418373eabb121cc78
   m_configObjects: {}
