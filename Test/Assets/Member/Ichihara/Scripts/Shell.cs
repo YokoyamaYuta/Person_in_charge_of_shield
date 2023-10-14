@@ -13,6 +13,7 @@ public class Shell : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        AudioManager.Instance.PlaySE(SEName.Shoot);
         MoveShell(this.GetCancellationTokenOnDestroy()).Forget();
     }
 
