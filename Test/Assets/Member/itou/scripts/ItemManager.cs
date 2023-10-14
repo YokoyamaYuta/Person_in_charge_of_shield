@@ -5,37 +5,48 @@ using UnityEngine;
 public class ItemManager : MonoBehaviour
 {
     [SerializeField]
-    GameObject item;
+    List<GameObject> items = new List<GameObject>();
     private int Itemsp;
-    public int Itemspmax;
+    public int Shieldspmax;
     private int Itemspcount;
     private bool spcooltime;
+    public bool endgame;
     // Start is called before the first frame update
     void Start()
     {
-        
+        endgame = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Itemsp <= Itemspmax && spcooltime == false)
-        {
-            spcooltime = true;
-            StartCoroutine(Itemspcooltime());
-        }
-        if(Itemsp >= Itemspmax && Itemspcount < 3) 
-        { 
-            Instantiate(item,this.transform.position,Quaternion.identity);
-            Itemspcount++;
-            Itemsp = 0;
-        }
-        else if(Itemspcount >= 3)
-        {
-            spcooltime = true;
-        }
+        //シールドバッテリーの生成クールタイム
+        if (Itemsp <= Shieldspmax && spcooltime == false)
+            {
+                spcooltime = true;
+                StartCoroutine(Itemspcooltime());
+            }
+        //シールドバッテリーの生成
+        if (Itemsp >= Shieldspmax && Itemspcount < 3)
+            {
+                Instantiate(items[0], this.transform.position, Quaternion.identity);
+                Itemspcount++;
+                Itemsp = 0;
+            }
+        //シールドバッテリーの生成停止
+        else if (Itemspcount >= 3)
+            {
+                spcooltime = true;
+            }
+        //リアクティブセルの生成
+        if (endgame && Itemspcount < 4)
+            {
+                Instantiate(items[1], this.transform.position, Quaternion.identity);
+                Itemspcount++;
+                Itemsp = 0;
+            }
     }
-
+    //生成の時間をランダムに
     IEnumerator Itemspcooltime()
     {
         Itemsp += Random.Range(1, 5);

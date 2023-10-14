@@ -80,3 +80,4 @@ Person_in_charge_of_shield/Logs/
 Test/Library/*
 Test/Logs/*
 Test/Temp/*
+Test/obj/
