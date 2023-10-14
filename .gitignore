@@ -9,13 +9,6 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
-Test/[Ll]ibrary/
-Test/[Tt]emp/
-Test/[Oo]bj/
-Test/[Bb]uild/
-Test/[Bb]uilds/
-Test/[Ll]ogs/
-Test/[Uu]ser[Ss]ettings/
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
