@@ -27,14 +27,11 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
     protected override void Awake()
     {
         base.Awake();
-        //基本一つのみなのでシーンを跨げるようにする
-        //DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
     {
-        //開始時にBGMを鳴らすやつ(タイトル画面用意)
-        //PlayBGM(BGMName.Main);
+
     }
 
     public void PlayBGM(BGMName bgm)
@@ -103,28 +100,14 @@ public class SESoundData
     public float volume = 1;
 }
 
-
+//BGM,SE等追加あればここにTitleBGMなど入れてくれるとその分流せるBGM,SEが増えます
 public enum SEName
 {
-    Count,
-    PushButton,
-    Finish,
-    Miss,
-    StartSentak,
-    Hanten,
-    Success,
-    SukillSE,
-    Wind,
-    Timer,
-    Denger,
-    Bomu,
+    Test,
 }
 
 public enum BGMName
 {
-    Main,
-    Title,
-    Street,
-    End,
+    Test,
 
 }
