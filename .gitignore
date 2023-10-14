@@ -77,3 +77,6 @@ crashlytics-build.properties
 Person_in_charge_of_shield/Library/
 Person_in_charge_of_shield/UserSettings/
 Person_in_charge_of_shield/Logs/
+Test/Library/*
+Test/Logs/*
+Test/Temp/*
