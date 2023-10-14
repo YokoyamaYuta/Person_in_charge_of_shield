@@ -104,6 +104,8 @@ public class SESoundData
 public enum SEName
 {
     Test,
+    Shoot,
+    BreakDebris,
 }
 
 public enum BGMName
