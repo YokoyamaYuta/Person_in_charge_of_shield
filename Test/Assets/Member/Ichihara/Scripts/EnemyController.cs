@@ -50,7 +50,7 @@ public class EnemyController : MonoBehaviour
                 EnemyBehaviour(this.GetCancellationTokenOnDestroy()).Forget();
                 break;
             case EnemyType.Debri:
-                DebriBehaviour(this.GetCancellationTokenOnDestroy()).Forget();
+                DebrisBehaviour(this.GetCancellationTokenOnDestroy()).Forget();
                 break;
             default:
                 break;
@@ -73,7 +73,7 @@ public class EnemyController : MonoBehaviour
     /// <summary>
     /// デブリ類の挙動
     /// </summary>
-    private async UniTask DebriBehaviour(CancellationToken token = default)
+    private async UniTask DebrisBehaviour(CancellationToken token = default)
     {
         // GetCancellationTokenOnDestroy() を引数で渡しているのと、
         // OnBecameInvisible でオブジェクトを破棄する為、無限ルールで回している
@@ -82,6 +82,16 @@ public class EnemyController : MonoBehaviour
             transform.Translate(Vector3.left * _debriSpeed * Time.deltaTime);
             await UniTask.WaitForSeconds(Time.deltaTime, cancellationToken: token);
         }
+    }
+
+    /// <summary>
+    /// デブリ類の破壊
+    /// 外部から呼び出す
+    /// </summary>
+    public void BreakDebris()
+    {
+        AudioManager.Instance.PlaySE(SEName.BreakDebris);
+        Destroy(gameObject);
     }
 
     private void OnBecameInvisible()
