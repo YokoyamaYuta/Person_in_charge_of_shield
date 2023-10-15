@@ -9,6 +9,8 @@ public class shield : MonoBehaviour
     [SerializeField]
     public List<Image> _Battery = new List<Image>();
     public int _shields;
+    public int _shimage;
+    public int _shim;
     public bool _shieldget;
     public bool _reactiveget;
     public bool _shieldgetmax;
@@ -18,6 +20,8 @@ public class shield : MonoBehaviour
     void Start()
     {
         _shields = -1;
+        _shimage = 0;
+        _shim = 0;
         _shieldget = false;
         _shieldgetmax = false;
         _Battery[0].color = Color.black;
@@ -51,19 +55,19 @@ public class shield : MonoBehaviour
                 {
                     _shieldget = false;
                     //シールドバッテリーの使用
-                    if (shieldecount == 1)
+                    if (shieldecount == 1 && _shimage <= 3)
                     {
                         //シールドバッテリーの見た目変更
-                        _Battery[_shields].sprite = _battenumber[2];
+                        _Battery[_shimage].sprite = _battenumber[2];
                         //連続使用しないようのクールタイム
                         StartCoroutine(shielduse());
                         shieldecount--;
+                        _shimage++;
                     }
                 }
                 //値の初期化
                 else if (shieldecount == 0)
                 {
-                    _shieldget = false;
                     shieldecount = 1;
                 }
             }
@@ -72,8 +76,9 @@ public class shield : MonoBehaviour
         if (_shieldgetmax && _shields >= 0)
         {
             //現在のシールドバッテリーの使用したどうかの確認
-            if (_Battery[_shields].sprite == _battenumber[2])
+            if (_Battery[_shim].sprite == _battenumber[2])
             {
+                _shim++;
                 //現在使用してないシールドバッテリーの計算
                 _shields--;
                 _shieldget = true;

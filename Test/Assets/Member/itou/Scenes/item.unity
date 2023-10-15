@@ -796,8 +796,10 @@ MonoBehaviour:
   - {fileID: 316334999}
   - {fileID: 812031756}
   _shields: 0
-  itemget: 0
-  itemgetmax: 0
+  _shimage: 0
+  _shieldget: 0
+  _reactiveget: 0
+  _shieldgetmax: 0
   _battenumber:
   - {fileID: 21300000, guid: 3a8581591df28fc4ea4c1b50d38fa596, type: 3}
   - {fileID: 21300000, guid: 3d0e0e6a342067541918aafe93cd7444, type: 3}
@@ -1043,7 +1045,7 @@ MonoBehaviour:
   items:
   - {fileID: 4838499513055700679, guid: 42b68d5dc1fd31940be140d2d97b4d58, type: 3}
   - {fileID: 7205124215454934754, guid: 69a93f4b29080a942b2b3dfce75e49bd, type: 3}
-  Shieldspmax: 1
+  Shieldspmax: 30
   endgame: 0
 --- !u!4 &1821056926
 Transform:
@@ -1077,7 +1079,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &1854387767
 BoxCollider2D:
   m_ObjectHideFlags: 0
