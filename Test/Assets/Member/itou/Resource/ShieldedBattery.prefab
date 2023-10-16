@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -4990100363285091612}
   - component: {fileID: -4631990244953440166}
   m_Layer: 0
-  m_Name: Square
+  m_Name: ShieldedBattery
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

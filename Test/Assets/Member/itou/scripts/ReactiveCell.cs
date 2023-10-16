@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShieldedBattery : MonoBehaviour
+public class ReactiveCell : MonoBehaviour
 {
     private GameObject _battecanvas;
     private shield _shield;
@@ -16,7 +16,6 @@ public class ShieldedBattery : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //自分の位置を移動
         this.transform.position -= new Vector3(2 * Time.deltaTime, 0, 0);
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -24,12 +23,9 @@ public class ShieldedBattery : MonoBehaviour
         //プレイヤーに当たった際自身を消してプレイヤーにシールドバッテリー付与
         if (other.gameObject.CompareTag("Player"))
         {
-            //シールドバッテリーの増加
-            _shield._shields++;
-            //シールドバッテリーの見た目変更
-            _shield._Battery[_shield._shields].sprite = _shield._battenumber[1];
-            //シールドバッテリー獲得をtrueへ
-            _shield._shieldget = true;
+            _shield._reactiveget = true;
+            _shield._Battery[3].color = Color.white;
+            _shield._Battery[3].sprite = _shield._battenumber[2];
             Destroy(this.gameObject);
         }
     }
