@@ -219,6 +219,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _spawnInterval: 3
 --- !u!4 &410850267
 Transform:
   m_ObjectHideFlags: 0
