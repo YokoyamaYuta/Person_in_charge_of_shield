@@ -47,10 +47,10 @@ public class EnemyController : MonoBehaviour
         switch (_enemyType)
         {
             case EnemyType.Enamy:
-                EnemyBehaviour(this.GetCancellationTokenOnDestroy()).Forget();
+                CallEnemyBehaviour();
                 break;
             case EnemyType.Debri:
-                DebrisBehaviour(this.GetCancellationTokenOnDestroy()).Forget();
+                CallDebrisBehaviour();
                 break;
             default:
                 break;
@@ -58,8 +58,26 @@ public class EnemyController : MonoBehaviour
     }
 
     /// <summary>
+    /// EnemyBehaviour を呼び出す
+    /// </summary>
+    private void CallEnemyBehaviour()
+    {
+        EnemyBehaviour(this.GetCancellationTokenOnDestroy()).Forget();
+    }
+
+    /// <summary>
+    /// DebrisBehaviour を呼び出す
+    /// </summary>
+    private void CallDebrisBehaviour()
+    {
+        DebrisBehaviour(this.GetCancellationTokenOnDestroy()).Forget();
+    }
+
+    /// <summary>
     /// エネミーの挙動
     /// </summary>
+    /// <param name="token"></param>
+    /// <returns></returns>
     private async UniTask EnemyBehaviour(CancellationToken token = default)
     {
         Shell shellSpript = _shell.GetComponent<Shell>();
@@ -73,6 +91,8 @@ public class EnemyController : MonoBehaviour
     /// <summary>
     /// デブリ類の挙動
     /// </summary>
+    /// <param name="token"></param>
+    /// <returns></returns>
     private async UniTask DebrisBehaviour(CancellationToken token = default)
     {
         // GetCancellationTokenOnDestroy() を引数で渡しているのと、
