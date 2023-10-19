@@ -19,17 +19,12 @@ public class DebriSpawn : SingletonMonoBehaviour<DebriSpawn>
     [SerializeField]
     private float _spawnInterval = 0.0f;
     // デブリ
-    private float[] _debriSpawnCurveTimes = { };
+    //private float[] _debriSpawnCurveTimes = { };
 
     // Start is called before the first frame update
     void Start()
     {
         CreateKeys();
-        _debriSpawnCurveTimes = new float[_debriSpawnCurve.keys.Length];
-        for (int i = 0; i < _debriSpawnCurve.keys.Length; i++)
-        {
-            _debriSpawnCurveTimes[i] = _debriSpawnCurve.keys[i].time;
-        }
         CallRandomSpawnDebris();
     }
 
