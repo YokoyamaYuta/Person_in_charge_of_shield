@@ -97,6 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e776bfe43b7bd42880a767c4102316, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shell: {fileID: 708135486818845705, guid: 4f7e5c6ab902a3f4a876240929713e02, type: 3}
+  _shell: {fileID: 0}
   _enemySpeed: 0
   _debriSpeed: 0
