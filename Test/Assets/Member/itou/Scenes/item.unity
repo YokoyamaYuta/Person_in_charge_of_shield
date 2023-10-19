@@ -797,6 +797,7 @@ MonoBehaviour:
   - {fileID: 812031756}
   _shields: 0
   _shimage: 0
+  _shim: 0
   _shieldget: 0
   _reactiveget: 0
   _shieldgetmax: 0
@@ -1023,6 +1024,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1821056926}
   - component: {fileID: 1821056925}
+  - component: {fileID: 1821056927}
   m_Layer: 0
   m_Name: ItemSp
   m_TagString: Untagged
@@ -1062,6 +1064,23 @@ Transform:
   m_Father: {fileID: 1423568256}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1821056927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821056924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90b4b6bcb9b62c74f9d25b2bc126ea92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 4838499513055700679, guid: 42b68d5dc1fd31940be140d2d97b4d58, type: 3}
+  - {fileID: 7205124215454934754, guid: 69a93f4b29080a942b2b3dfce75e49bd, type: 3}
+  Shieldspmax: 30
+  endgame: 0
 --- !u!1 &1854387766
 GameObject:
   m_ObjectHideFlags: 0
