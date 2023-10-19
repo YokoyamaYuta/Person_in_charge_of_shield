@@ -42,7 +42,8 @@ public class EnemyController : MonoBehaviour
         else if (tag == "Debri") { _enemyType = EnemyType.Debri; }
         if (_enemyType == EnemyType.Enamy && _shell == null)
         {
-            // TODO:_shell にオブジェクト参照を行う
+            // _shell にオブジェクト参照がない場合、Resources フォルダから直接読み込む
+            _shell = Resources.Load("Prefabs/Shell") as GameObject;
         }
         switch (_enemyType)
         {
