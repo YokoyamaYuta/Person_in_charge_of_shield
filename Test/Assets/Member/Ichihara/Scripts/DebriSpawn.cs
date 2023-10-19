@@ -77,7 +77,7 @@ public class DebriSpawn : SingletonMonoBehaviour<DebriSpawn>
         float result = random * gameViewScale.y;
         // result の値を -5.4 ~ 5.4 の間に正規化
         float normalizedResult = Mathf.Repeat(result, gameViewScale.y) - gameViewScale.y / 2;
-        Vector3 dummySpawnPosition = Vector3.right * gameViewScale.x / 2 + Vector3.up * normalizedResult;
+        Vector3 dummySpawnPosition = Vector3.right * gameViewScale.x + Vector3.up * normalizedResult;
         float dummySpawnPositionY = dummySpawnPosition.y;
         // 限界値を定義
         Vector3 spawnPosition = new Vector3(dummySpawnPosition.x
