@@ -15,6 +15,11 @@ public class Shell : MonoBehaviour
         MoveShell(this.GetCancellationTokenOnDestroy()).Forget();
     }
 
+    /// <summary>
+    /// 弾の動作
+    /// </summary>
+    /// <param name="token">キャンセル処理用のトークン</param>
+    /// <returns></returns>
     private async UniTask MoveShell(CancellationToken token)
     {
         bool isCanceled = false;
@@ -27,11 +32,16 @@ public class Shell : MonoBehaviour
             }
             catch(MissingReferenceException)
             {
-                break;
+                isCanceled = true;
+                continue;
             }
         }
     }
 
+    /// <summary>
+    /// 弾を生成する
+    /// </summary>
+    /// <param name="parent">生成する弾の親オブジェクト</param>
     public void GenerateShell(Transform parent)
     {
         Instantiate(gameObject, parent);
