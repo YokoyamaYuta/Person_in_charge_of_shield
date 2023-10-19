@@ -77,7 +77,7 @@ public class EnemyController : MonoBehaviour
     /// <summary>
     /// エネミーの挙動
     /// </summary>
-    /// <param name="token"></param>
+    /// <param name="token">キャンセル処理用のトークン</param>
     /// <returns></returns>
     private async UniTask EnemyBehaviour(CancellationToken token = default)
     {
@@ -92,16 +92,23 @@ public class EnemyController : MonoBehaviour
     /// <summary>
     /// デブリ類の挙動
     /// </summary>
-    /// <param name="token"></param>
+    /// <param name="token">キャンセル処理用のトークン</param>
     /// <returns></returns>
     private async UniTask DebrisBehaviour(CancellationToken token = default)
     {
-        // GetCancellationTokenOnDestroy() を引数で渡しているのと、
-        // OnBecameInvisible でオブジェクトを破棄する為、無限ルールで回している
-        while (true)
+        bool isMovedDebri = false;
+        while (isMovedDebri == false)
         {
-            transform.Translate(Vector3.left * _debriSpeed * Time.deltaTime);
-            await UniTask.WaitForSeconds(Time.deltaTime, cancellationToken: token);
+            try
+            {
+                transform.Translate(Vector3.left * _debriSpeed * Time.deltaTime);
+                await UniTask.WaitForSeconds(Time.deltaTime, cancellationToken: token);
+            }
+            catch(MissingReferenceException)
+            {
+                isMovedDebri = true;
+                continue;
+            }
         }
     }
 
