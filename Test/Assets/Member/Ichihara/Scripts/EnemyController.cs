@@ -42,15 +42,16 @@ public class EnemyController : MonoBehaviour
         else if (tag == "Debri") { _enemyType = EnemyType.Debri; }
         if (_enemyType == EnemyType.Enamy && _shell == null)
         {
-            // TODO:_shell にオブジェクト参照を行う
+            // _shell にオブジェクト参照がない場合、Resources フォルダから直接読み込む
+            _shell = Resources.Load("Prefabs/Shell") as GameObject;
         }
         switch (_enemyType)
         {
             case EnemyType.Enamy:
-                EnemyBehaviour(this.GetCancellationTokenOnDestroy()).Forget();
+                CallEnemyBehaviour();
                 break;
             case EnemyType.Debri:
-                DebrisBehaviour(this.GetCancellationTokenOnDestroy()).Forget();
+                CallDebrisBehaviour();
                 break;
             default:
                 break;
@@ -58,8 +59,26 @@ public class EnemyController : MonoBehaviour
     }
 
     /// <summary>
+    /// EnemyBehaviour を呼び出す
+    /// </summary>
+    private void CallEnemyBehaviour()
+    {
+        EnemyBehaviour(this.GetCancellationTokenOnDestroy()).Forget();
+    }
+
+    /// <summary>
+    /// DebrisBehaviour を呼び出す
+    /// </summary>
+    private void CallDebrisBehaviour()
+    {
+        DebrisBehaviour(this.GetCancellationTokenOnDestroy()).Forget();
+    }
+
+    /// <summary>
     /// エネミーの挙動
     /// </summary>
+    /// <param name="token">キャンセル処理用のトークン</param>
+    /// <returns></returns>
     private async UniTask EnemyBehaviour(CancellationToken token = default)
     {
         Shell shellSpript = _shell.GetComponent<Shell>();
@@ -73,14 +92,23 @@ public class EnemyController : MonoBehaviour
     /// <summary>
     /// デブリ類の挙動
     /// </summary>
+    /// <param name="token">キャンセル処理用のトークン</param>
+    /// <returns></returns>
     private async UniTask DebrisBehaviour(CancellationToken token = default)
     {
-        // GetCancellationTokenOnDestroy() を引数で渡しているのと、
-        // OnBecameInvisible でオブジェクトを破棄する為、無限ルールで回している
-        while (true)
+        bool isMovedDebri = false;
+        while (isMovedDebri == false)
         {
-            transform.Translate(Vector3.left * _debriSpeed * Time.deltaTime);
-            await UniTask.WaitForSeconds(Time.deltaTime, cancellationToken: token);
+            try
+            {
+                transform.Translate(Vector3.left * _debriSpeed * Time.deltaTime);
+                await UniTask.WaitForSeconds(Time.deltaTime, cancellationToken: token);
+            }
+            catch(MissingReferenceException)
+            {
+                isMovedDebri = true;
+                continue;
+            }
         }
     }
 
