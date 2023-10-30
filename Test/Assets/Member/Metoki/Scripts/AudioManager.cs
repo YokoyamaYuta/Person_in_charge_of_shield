@@ -17,9 +17,9 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
 
     private List<AudioSource> subSESources = new List<AudioSource>();
 
-    public float MasterVolume = 1;
-    public float BGMVolume = 0.5f;
-    public float SEVolume = 1;
+    //public float MasterVolume = 1;
+    //public float BGMVolume = 0.5f;
+    //public float SEVolume = 1;
 
     [SerializeField] List<BGMSoundData> bgmSoundDatas;
     [SerializeField] List<SESoundData> seSoundDatas;
@@ -38,7 +38,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
     {
         BGMSoundData data = bgmSoundDatas.Find(data => data.bgm == bgm);
         bgmAudioSource.clip = data.audioClip;
-        bgmAudioSource.volume = data.volume * BGMVolume * MasterVolume;
+        //bgmAudioSource.volume = data.volume * BGMVolume * MasterVolume;
         bgmAudioSource.Play();
     }
 
@@ -48,7 +48,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         SESoundData data = seSoundDatas.Find(data => data.se == se);
 
         seAudioSource.clip = data.audioClip;
-        seAudioSource.volume = data.volume * SEVolume * MasterVolume;
+        //seAudioSource.volume = data.volume * SEVolume * MasterVolume;
         seAudioSource.PlayOneShot(seAudioSource.clip);
     }
 
@@ -87,8 +87,8 @@ public class BGMSoundData
 {
     public BGMName bgm;
     public AudioClip audioClip;
-    [Range(0, 1)]
-    public float volume = 1;
+    //[Range(0, 1)]
+    //public float volume = 1;
 }
 
 [System.Serializable]
@@ -96,13 +96,19 @@ public class SESoundData
 {
     public SEName se;
     public AudioClip audioClip;
-    [Range(0, 1)]
-    public float volume = 1;
+    //[Range(0, 1)]
+    //public float volume = 1;
 }
 
 //BGM,SEìôí«â¡Ç†ÇÍÇŒÇ±Ç±Ç…TitleBGMÇ»Ç«ì¸ÇÍÇƒÇ≠ÇÍÇÈÇ∆ÇªÇÃï™ó¨ÇπÇÈBGM,SEÇ™ëùÇ¶Ç‹Ç∑
 public enum SEName
 {
+    Bom,
+    GameClear,
+    GameOver,
+    Button,
+    Shild,
+    Get,
     Test,
     Shoot,
     BreakDebris,
@@ -110,6 +116,6 @@ public enum SEName
 
 public enum BGMName
 {
+    MainBgm,
     Test,
-
 }

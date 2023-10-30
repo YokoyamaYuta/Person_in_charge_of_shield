@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Member/Metoki/Scenes/TutorialScene.unity
     guid: cc7d2abf1bdeeb440a26c110bb79ba48
   - enabled: 1
+    path: Assets/Member/Yuta/Scenes/SynopsisScene.unity
+    guid: 5b2f6cdb035d99b40a93fb7c9e7db9d4
+  - enabled: 1
     path: Assets/Member/Metoki/Scenes/GameScene.unity
     guid: f7c589f6fdfe1da419b5939a41a20adb
   - enabled: 1

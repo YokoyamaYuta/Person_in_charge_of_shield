@@ -6,6 +6,16 @@ TagManager:
   tags:
   - Enemy
   - Debri
+  - Item
+  - Shild
+  - Shild_Mater
+  - Shild_UI1
+  - Shild_UI2
+  - Shild_UI3
+  - Shild_UI4
+  - Parcent
+  - Score
+  - GameManger
   layers:
   - Default
   - TransparentFX
